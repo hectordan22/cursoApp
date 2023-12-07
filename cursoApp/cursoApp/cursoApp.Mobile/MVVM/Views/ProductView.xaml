@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="cursoApp.Mobile.MVVM.Views.ProductView"
+             Title="Productos"
+             BackgroundColor="White">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="mas.png" Command="{Binding NewProductCommand}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+    <AbsoluteLayout>
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="All"
+                    Padding="5">
+            <CollectionView ItemsSource="{Binding Product}" x:Name="cProductView">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical">
+                    </GridItemsLayout>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10" Margin="5">
+                              
+                                <Grid Padding="15">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label HorizontalTextAlignment="Start" TextColor="Black" Text="Nombre: " Grid.Row="0" Grid.Column="0" FontAttributes="Bold" />
+                                    <Label TextColor="Black" Text="{Binding name}" Grid.Row="0" Grid.Column="1" />
+
+                                    <Label HorizontalTextAlignment="Start" TextColor="Black" Text="Descripcion: " Grid.Row="1" Grid.Column="0" FontAttributes="Bold" />
+                                    <Label TextColor="Black" Text="{Binding description}" Grid.Row="1" Grid.Column="1" />
+
+                                    <Label HorizontalTextAlignment="Start" TextColor="Black" Text="precio: " Grid.Row="2" Grid.Column="0" FontAttributes="Bold" />
+                                    <Label TextColor="Black" Text="{Binding price}" Grid.Row="2" Grid.Column="1" />
+
+                                    <Label HorizontalTextAlignment="Start" TextColor="Black" Text="Categoria: " Grid.Row="3" Grid.Column="0" FontAttributes="Bold" />
+                                <Label TextColor="Black" Text="{Binding category.name}" Grid.Row="3" Grid.Column="1" />
+                            </Grid>
+                            </Frame>
+                       
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+    </AbsoluteLayout>
+
+
+</ContentPage>
